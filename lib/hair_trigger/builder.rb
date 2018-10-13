@@ -337,7 +337,7 @@ module HairTrigger
       else
         @actions = block.call
         (@actions.is_a?(Hash) ? @actions.values : [@actions]).each do |actions|
-          actions.sub!(/(\s*)\z/, ';\1') if actions && actions !~ /;\s*\z/
+          actions = actions.sub(/(\s*)\z/, ';\1') if actions && actions !~ /;\s*\z/
         end
       end
       # only the top-most block actually executes
